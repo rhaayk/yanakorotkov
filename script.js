@@ -28,7 +28,7 @@ const translations = {
     projects_title: "Projects",
 
     project_title: "Banana Quality Prediction",
-    project_description: "A school machine learning project from Spring 2025 that predicts banana quality using logistic regression and classification models.",
+    project_description: "A school machine learning project that predicts banana quality using logistic regression and classification models.",
     project_date: "Spring 2025",
     project_pdf_link: "Open project PDF",
 
@@ -64,7 +64,7 @@ const translations = {
     projects_title: "Проекты",
 
     project_title: "Прогноз качества бананов",
-    project_description: "Школьный проект по машинному обучению весны 2025 года, предсказывающий качество бананов с помощью логистической регрессии и классификационных моделей.",
+    project_description: "Школьный проект по машинному обучению, предсказывающий качество бананов с помощью логистической регрессии и классификационных моделей.",
     project_date: "Весна 2025",
     project_pdf_link: "Открыть PDF проект",
 
@@ -100,7 +100,7 @@ const translations = {
     projects_title: "Projekte",
 
     project_title: "Vorhersage der Bananenqualität",
-    project_description: "Ein Schulprojekt zum maschinellen Lernen aus dem Frühjahr 2025, das die Qualität von Bananen mithilfe logistischer Regression und Klassifikationsmodellen vorhersagt.",
+    project_description: "Ein Schulprojekt zum maschinellen Lernen, das die Qualität von Bananen mithilfe logistischer Regression und Klassifikationsmodellen vorhersagt.",
     project_date: "Frühjahr 2025",
     project_pdf_link: "Projekt-PDF öffnen",
 
