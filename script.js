@@ -36,7 +36,7 @@ const translations = {
     project_date: "Spring 2025",
     project_pdf_link: "Open project PDF",
 
-    contact_text: "Email: rhaayk08@email.com",
+    contact_text: "Email: rhaayk08@gmail.com",
   },
   ru: {
     about_title: "Обо мне",
@@ -75,7 +75,7 @@ const translations = {
     project_date: "Весна 2025",
     project_pdf_link: "Открыть PDF проект",
 
-    contact_text: "Email: rhaayk08@email.com",
+    contact_text: "Email: rhaayk08@gmail.com",
   },
   de: {
     about_title: "Über mich",
@@ -113,7 +113,7 @@ const translations = {
     project_date: "Frühjahr 2025",
     project_pdf_link: "Projekt-PDF öffnen",
 
-    contact_text: "E-Mail: rhaayk08@email.com",
+    contact_text: "E-Mail: rhaayk08@gmail.com",
   }
 };
 
