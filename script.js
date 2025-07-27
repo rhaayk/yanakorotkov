@@ -1,3 +1,4 @@
+// Объект с переводами для разных языков
 const translations = {
   en: {
     about_title: "About Me",
@@ -25,15 +26,15 @@ const translations = {
     achievements_title: "Achievements",
     achievement_1: "Participation in NVIDIA project",
     achievement_2: "History Olympiad at Yad Vashem",
-    projects_title: "Projects",
-
+    projects_title: "Projects", // Этот ключ используется для текста ссылки "Проекты" в меню
+    
     project_title: "Banana Quality Prediction",
     project_description: "A school machine learning project that predicts banana quality using logistic regression and classification models.",
     project_date: "Spring 2025",
     project_pdf_link: "Open project PDF",
 
     contact_title: "Contact",
-    contact_text: "Email: rhaayk08@gmail.com",
+    contact_text: "Email: rhaayk08@email.com",
   },
   ru: {
     about_title: "Обо мне",
@@ -61,15 +62,15 @@ const translations = {
     achievements_title: "Достижения",
     achievement_1: "Участие в проекте NVIDIA",
     achievement_2: "Олимпиада по истории Яд Вашем",
-    projects_title: "Проекты",
-
+    projects_title: "Проекты", // Этот ключ используется для текста ссылки "Проекты" в меню
+    
     project_title: "Прогноз качества бананов",
     project_description: "Школьный проект по машинному обучению, предсказывающий качество бананов с помощью логистической регрессии и классификационных моделей.",
     project_date: "Весна 2025",
     project_pdf_link: "Открыть PDF проект",
 
     contact_title: "Контакты",
-    contact_text: "Email: rhaayk08@gmail.com",
+    contact_text: "Email: rhaayk08@email.com",
   },
   de: {
     about_title: "Über mich",
@@ -97,18 +98,19 @@ const translations = {
     achievements_title: "Erfolge",
     achievement_1: "Teilnahme am NVIDIA-Projekt",
     achievement_2: "Geschichtsolympiade bei Yad Vashem",
-    projects_title: "Projekte",
-
+    projects_title: "Projekte", // Этот ключ используется для текста ссылки "Проекты" в меню
+    
     project_title: "Vorhersage der Bananenqualität",
     project_description: "Ein Schulprojekt zum maschinellen Lernen, das die Qualität von Bananen mithilfe logistischer Regression und Klassifikationsmodellen vorhersagt.",
     project_date: "Frühjahr 2025",
     project_pdf_link: "Projekt-PDF öffnen",
 
     contact_title: "Kontakt",
-    contact_text: "E-Mail: rhaayk08@gmail.com",
+    contact_text: "E-Mail: rhaayk08@email.com",
   }
 };
 
+// Функция для установки языка
 function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
@@ -118,22 +120,29 @@ function setLanguage(lang) {
   });
 }
 
-// Установить английский по умолчанию
-setLanguage("en");
+// Установить английский по умолчанию при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  setLanguage("en");
 
-// Функция для переключения сайдбара (используется кнопкой-бургером)
-function toggleSidebar() {
+  // Получаем ссылки на элементы
   const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('active');
-}
+  const burgerButton = document.getElementById('burger');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
 
-// Добавляем слушатель событий для ссылок навигации, чтобы закрывать сайдбар после клика
-document.querySelectorAll('.sidebar nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    const sidebar = document.querySelector('.sidebar');
-    // Если сайдбар открыт (имеет класс 'active'), закрываем его
-    if (sidebar.classList.contains('active')) {
-      sidebar.classList.remove('active');
-    }
+  // Добавляем слушатель события на кнопку-бургер
+  if (burgerButton) {
+    burgerButton.addEventListener('click', () => {
+      sidebar.classList.toggle('active'); // Переключаем класс 'active' для сайдбара
+    });
+  }
+
+  // Добавляем слушатель события на каждую ссылку в меню
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Закрываем сайдбар после клика по ссылке, если он открыт
+      if (sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+      }
+    });
   });
 });
