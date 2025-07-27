@@ -4,21 +4,28 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
+/* --- Стили для мобильных устройств (по умолчанию) --- */
+
 .sidebar {
-  width: 220px;
-  background-color: #f5f0fa;
+  position: fixed;
+  top: 0;
+  right: -250px; /* Скрываем за экраном справа */
+  width: 250px;
+  height: 100vh;
+  background-color: #f5f0fa; /* Сиреневый фон для мобильного меню */
   padding: 2em 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15); /* Тень для эффекта появления */
+  transition: right 0.3s ease-in-out; /* Плавное скольжение */
+  z-index: 1000; /* Убедимся, что сайдбар поверх контента */
+}
+
+.sidebar.active {
+  right: 0; /* Показываем, когда добавлен класс 'active' */
 }
 
 .sidebar h1 {
@@ -93,9 +100,9 @@ body {
 }
 
 main {
-  margin-right: 240px;
   padding: 3em 2em;
   max-width: 800px;
+  margin: 0 auto; /* Центрируем контент для мобильных */
 }
 
 section {
@@ -149,6 +156,7 @@ h2 {
   margin-bottom: 0.2em;
   font-size: 1.05em;
 }
+
 .project {
   background-color: #f3eaff; /* очень светлый сиреневый фон */
   border: 2px solid #caa0ff; /* сиреневая рамка */
@@ -184,89 +192,59 @@ h2 {
   text-decoration: underline;
 }
 
+/* Стили кнопки-бургера для мобильных */
 .toggle-sidebar {
+  display: block; /* Показываем на мобильных по умолчанию */
   position: fixed;
-  top: 10px;
-  right: 230px;
-  background-color: #caa0ff;
-  color: white;
+  top: 20px;
+  right: 20px; /* Позиционируем справа */
+  background-color: #caa0ff; /* Сиреневый фон */
+  color: white; /* Белая иконка бургера */
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 15px;
+  border-radius: 50%; /* Делаем круглой */
   cursor: pointer;
-  z-index: 1002; /* СДЕЛАЛИ ВЫШЕ сайдбара */
-  font-size: 1.2em;
-  transition: right 0.3s ease-in-out;
+  font-size: 1.5em; /* Больше размер иконки */
+  line-height: 1; /* Центрируем иконку по вертикали */
+  box-shadow: 0 2px 8px rgba(202, 160, 255, 0.4); /* Легкая тень */
+  z-index: 1001; /* Убедимся, что кнопка поверх сайдбара */
+  transition: background-color 0.3s ease;
+}
+
+.toggle-sidebar:hover {
+  background-color: #b388ff; /* Чуть темнее сиреневый при наведении */
 }
 
 
-/* Когда меню скрыто — перемещаем кнопку в самый правый угол */
-body.sidebar-collapsed .toggle-sidebar {
-  right: 10px;
-}
+/* --- Стили для десктопов (медиа-запрос) --- */
+@media (min-width: 769px) {
+  body {
+    display: flex; /* Снова включаем flex для десктопного макета */
+  }
 
-.sidebar.collapsed {
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-body.sidebar-collapsed .sidebar {
-  transform: translateX(100%);
-}
-
-body.sidebar-collapsed main {
-  margin-right: 0;
-}
-
-.sidebar {
-  transition: transform 0.3s ease-in-out;
-}
-/* Скрываем кнопку на больших экранах */
-.toggle-sidebar {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed; /* чтобы кнопка не сдвигала контент */
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-/* На экранах <= 768px показываем кнопку */
-@media (max-width: 768px) {
   .toggle-sidebar {
-    display: block;
+    display: none; /* Скрываем кнопку-бургер на десктопе */
   }
 
-  /* И делаем сайдбар скрытым по умолчанию */
   .sidebar {
-    position: fixed;
-    left: -250px; /* прячем за экран слева */
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: #fff; /* или цвет фона сайдбара */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    transition: left 0.3s ease;
-    overflow-y: auto;
-    z-index: 999;
+    position: fixed; /* Сайдбар остается фиксированным */
+    right: 0;
+    left: auto; /* Убедимся, что он прилипает к правой стороне */
+    width: 220px; /* Ваша исходная ширина для десктопа */
+    height: 100vh;
+    background-color: #f5f0fa; /* Сиреневый фон */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.05); /* Более легкая тень для десктопа */
+    transition: none; /* Переход не нужен для десктопа */
+    z-index: auto; /* Сбрасываем z-index для десктопа */
   }
 
-  /* Когда сайдбар активен — показываем */
   .sidebar.active {
-    left: 0;
+    right: 0; /* На десктопе всегда остается на 0 */
   }
 
-  /* Чтобы main подвинулся при открытом меню (если нужно) */
   main {
-    transition: margin-left 0.3s ease;
-  }
-
-  main.shifted {
-    margin-left: 250px;
+    margin-right: 240px; /* Освобождаем место для сайдбара на десктопе */
+    margin-left: auto; /* Сбрасываем margin-left для десктопа */
+    max-width: 800px;
   }
 }
-
