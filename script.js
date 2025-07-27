@@ -130,4 +130,11 @@ function toggleSidebar() {
   sidebar.classList.toggle('active');
 }
 
+const toggleButton = document.querySelector('.toggle-sidebar');
+const sidebar = document.querySelector('.sidebar');
+const mainContent = document.querySelector('main');
 
+toggleButton.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+  mainContent.classList.toggle('shifted');
+});
