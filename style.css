@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.15); /* Тень для эффекта появления */
+  box-shadow: -2px 0 8px rgba(0,0,0,0.08); /* Чуть более тонкая тень */
   transition: right 0.3s ease-in-out; /* Плавное скольжение */
   z-index: 1000; /* Убедимся, что сайдбар поверх контента */
 }
@@ -201,11 +201,14 @@ h2 {
   background-color: #caa0ff; /* Сиреневый фон */
   color: white; /* Белая иконка бургера */
   border: none;
-  padding: 10px 15px;
+  padding: 10px 15px; /* Увеличим паддинг для лучшего центрирования */
   border-radius: 50%; /* Делаем круглой */
   cursor: pointer;
   font-size: 1.5em; /* Больше размер иконки */
   line-height: 1; /* Центрируем иконку по вертикали */
+  display: flex; /* Используем flexbox для центрирования содержимого */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
   box-shadow: 0 2px 8px rgba(202, 160, 255, 0.4); /* Легкая тень */
   z-index: 1001; /* Убедимся, что кнопка поверх сайдбара */
   transition: background-color 0.3s ease;
@@ -244,7 +247,7 @@ h2 {
 
   main {
     margin-right: 240px; /* Освобождаем место для сайдбара на десктопе */
-    margin-left: auto; /* Сбрасываем margin-left для десктопа */
+    margin-left: 0; /* **ВАЖНО:** Возвращаем main к левому краю */
     max-width: 800px;
   }
 }
