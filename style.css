@@ -1,359 +1,77 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  color: #333;
   margin: 0;
   padding: 0;
   display: flex;
+  background-color: #fff;
+  color: #333;
 }
 
+/* Сайдбар на десктопе справа */
 .sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 220px;
+  height: 100vh;
   background-color: #f5f0fa;
   padding: 2em 1em;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+  transition: right 0.3s ease;
+  z-index: 999;
 }
 
-.sidebar h1 {
-  color: #caa0ff;
-  font-size: 1.8em;
-  margin-bottom: 1em;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  margin-bottom: 2em;
-}
-
-.sidebar nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.sidebar nav a:hover {
-  color: #caa0ff;
-}
-
-.lang-switcher ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.lang-switcher ul li {
-  margin-bottom: 0.8em;
-}
-
-.lang-switcher button {
-  background-color: #ffffff;
-  border: 2px solid #caa0ff;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 1em;
-  cursor: pointer;
-  width: 100%;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.lang-switcher button:hover {
-  background-color: #caa0ff33;
-  transform: scale(1.05);
-}
-
-.sidebar-footer {
-  margin-top: auto;
-  padding: 1em 0 0 0;
-  width: 100%;
-  border-top: 1px solid #d6c9f8;
-  text-align: center;
-}
-
-.email-link {
-  color: #7a56ff;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s;
-}
-
-.email-link:hover {
-  color: #4e2ac1;
-  text-decoration: underline;
-}
-
+/* Основной контент с отступом */
 main {
   margin-right: 240px;
   padding: 3em 2em;
   max-width: 800px;
+  transition: margin-right 0.3s ease;
 }
 
-section {
-  margin-bottom: 3em;
-}
-
-h2 {
-  color: #caa0ff;
-  font-size: 1.5em;
-}
-
-.about-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 2em;
-  flex-wrap: wrap;
-}
-
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: 3px solid #caa0ff;
-}
-
-.info-list p {
-  margin: 0.4em 0;
-  font-size: 1.05em;
-}
-
-.info-list a {
-  color: #a178ff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.info-list a:hover {
-  color: #6b3ecf;
-  text-decoration: underline;
-}
-
-.languages-list {
-  list-style: disc inside;
-  margin: 0.3em 0 0 1.2em;
-  padding: 0;
-}
-
-.languages-list li {
-  margin-bottom: 0.2em;
-  font-size: 1.05em;
-}
-.project {
-  background-color: #f3eaff; /* очень светлый сиреневый фон */
-  border: 2px solid #caa0ff; /* сиреневая рамка */
-  border-radius: 12px;
-  padding: 1.5em 1.8em;
-  margin-bottom: 2em;
-  box-shadow: 0 4px 8px rgba(202, 160, 255, 0.2);
-}
-
-.project-title {
-  color: #9b6cff; /* чуть темнее сиреневого */
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  font-size: 1.2em;
-}
-
-.project-description {
-  font-size: 1.05em;
-  margin-bottom: 1em;
-  color: #4a317d; /* темный сиреневый текст */
-}
-
-.project-pdf-link {
-  color: #7a56ff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.project-pdf-link:hover {
-  color: #4e2ac1;
-  text-decoration: underline;
-}
-
-.toggle-sidebar {
-  position: fixed;
-  top: 10px;
-  right: 230px;
-  background-color: #caa0ff;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 1002; /* СДЕЛАЛИ ВЫШЕ сайдбара */
-  font-size: 1.2em;
-  transition: right 0.3s ease-in-out;
-}
-
-
-/* Когда меню скрыто — перемещаем кнопку в самый правый угол */
-body.sidebar-collapsed .toggle-sidebar {
-  right: 10px;
-}
-
-.sidebar.collapsed {
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-body.sidebar-collapsed .sidebar {
-  transform: translateX(100%);
-}
-
-body.sidebar-collapsed main {
-  margin-right: 0;
-}
-
-.sidebar {
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Скрываем кнопку на больших экранах */
+/* Кнопка-бургер — скрыта на десктопе */
 .toggle-sidebar {
   display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed; /* чтобы кнопка не сдвигала контент */
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
 }
 
-/* На экранах <= 768px показываем кнопку */
+/* Мобильные стили */
 @media (max-width: 768px) {
+
+  /* Кнопка показывается */
   .toggle-sidebar {
     display: block;
-  }
-
-  /* И делаем сайдбар скрытым по умолчанию */
-  .sidebar {
     position: fixed;
-    left: -250px; /* прячем за экран слева */
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: #fff; /* или цвет фона сайдбара */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    transition: left 0.3s ease;
-    overflow-y: auto;
-    z-index: 999;
+    top: 10px;
+    right: 10px;
+    background-color: #caa0ff;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 1.6em;
+    cursor: pointer;
+    z-index: 1002;
   }
 
-  /* Когда сайдбар активен — показываем */
-  .sidebar.active {
-    left: 0;
-  }
-
-  /* Чтобы main подвинулся при открытом меню (если нужно) */
-  main {
-    transition: margin-left 0.3s ease;
-  }
-
-  main.shifted {
-    margin-left: 250px;
-  }
-}
-
-/* Кнопка-бургер */
-.toggle-sidebar {
-  display: none; /* скрыта на больших экранах */
-  font-size: 24px;
-  background-color: #caa0ff; /* сиреневый фон */
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px 14px;
-  position: fixed;
-  top: 10px;
-  right: 10px; /* кнопка справа */
-  border-radius: 6px;
-  z-index: 1002;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-  user-select: none;
-}
-
-.toggle-sidebar:hover {
-  background-color: #9b6cff; /* темнее на ховере */
-}
-
-/* Показываем кнопку на мобильных */
-@media (max-width: 768px) {
-  .toggle-sidebar {
-    display: block;
-  }
-
-  /* Меню скрыто справа по умолчанию */
+  /* Сайдбар по умолчанию скрыт справа за экраном */
   .sidebar {
-    position: fixed;
-    right: -250px; /* спрятано справа */
-    top: 0;
     width: 250px;
+    right: -250px; /* спрятан */
     height: 100vh;
-    background-color: #f5f0fa; /* сиреневый фон */
-    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
-    transition: right 0.3s ease;
-    overflow-y: auto;
-    z-index: 999;
-    padding: 2em 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    background-color: #f5f0fa;
   }
 
-  /* Когда меню активно - сдвигаем вправо */
+  /* При активном классе показываем */
   .sidebar.active {
     right: 0;
   }
 
+  /* Основной контент занимает всю ширину */
   main {
-    transition: margin-right 0.3s ease;
     margin-right: 0;
   }
-
-  main.shifted {
-    margin-right: 250px;
-  }
 }
-
-/* На больших экранах меню фиксировано справа */
-@media (min-width: 769px) {
-  .sidebar {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 220px;
-    height: 100vh;
-    background-color: #f5f0fa;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
-    padding: 2em 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  main {
-    margin-right: 240px;
-  }
-}
-
-
-
-
