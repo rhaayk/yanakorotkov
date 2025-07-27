@@ -33,7 +33,7 @@ const translations = {
     project_pdf_link: "Open project PDF",
 
     contact_title: "Contact",
-    contact_text: "Email: rhaayk08@email.com",
+    contact_text: "Email: rhaayk08@gmail.com",
   },
   ru: {
     about_title: "Обо мне",
@@ -69,7 +69,7 @@ const translations = {
     project_pdf_link: "Открыть PDF проект",
 
     contact_title: "Контакты",
-    contact_text: "Email: rhaayk08@email.com",
+    contact_text: "Email: rhaayk08@gmail.com",
   },
   de: {
     about_title: "Über mich",
@@ -105,7 +105,7 @@ const translations = {
     project_pdf_link: "Projekt-PDF öffnen",
 
     contact_title: "Kontakt",
-    contact_text: "E-Mail: rhaayk08@email.com",
+    contact_text: "E-Mail: rhaayk08@gmail.com",
   }
 };
 
