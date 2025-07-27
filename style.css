@@ -22,7 +22,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: -1px 0 5px rgba(0,0,0,0.03); /* **УЛЬТРА-ТОНКАЯ ТЕНЬ!** */
+  /* **ОЧЕНЬ ТУСКЛАЯ ТЕНЬ - ВНИМАТЕЛЬНО ИЗМЕНЕНО ЗДЕСЬ!** */
+  box-shadow: -0.5px 0 2px rgba(0,0,0,0.01); /* Почти невидимая тень */
   transition: right 0.3s ease-in-out; /* Плавное появление/исчезновение */
   z-index: 1000; /* Сайдбар поверх всего */
 }
@@ -202,23 +203,22 @@ h2 {
   text-decoration: underline;
 }
 
-/* --- Стили кнопки-бургера для мобильных устройств --- */
+/* --- Стили кнопки-бургера для мобильных устройств (ВОССТАНОВЛЕНЫ ПРЕДЫДУЩИЕ) --- */
 .burger-button {
   display: flex; /* Используем flexbox для центрирования содержимого */
   justify-content: center; /* Центрируем по горизонтали */
   align-items: center; /* Центрируем по вертикали */
   position: fixed;
   top: 20px;
-  right: 20px; /* Справа, как и просила */
+  right: 20px; /* Справа */
   background-color: #caa0ff; /* Сиреневый фон */
   color: white; /* Белый цвет иконки */
   border: none;
-  width: 48px; /* **ЯВНАЯ ШИРИНА КНОПКИ** */
-  height: 48px; /* **ЯВНАЯ ВЫСОТА КНОПКИ** */
+  padding: 10px 15px; /* Вернули предыдущий паддинг */
   border-radius: 50%; /* Круглая форма */
   cursor: pointer;
-  font-size: 1.8em; /* Размер иконки */
-  line-height: 1; /* Убираем лишнее пространство вокруг символа */
+  font-size: 1.5em; /* Размер иконки */
+  line-height: 1; /* Убираем лишнее пространство */
   box-shadow: 0 2px 8px rgba(202, 160, 255, 0.4); /* Красивая тень */
   z-index: 1001; /* Поверх сайдбара */
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -232,7 +232,7 @@ h2 {
 /* --- Стили для десктопов (медиа-запрос: экраны шире 768px) --- */
 @media (min-width: 769px) {
   body {
-    display: flex; /* Включаем flexbox для десктопного макета (сайдбар слева, контент справа) */
+    display: flex;
   }
 
   .burger-button {
@@ -240,25 +240,25 @@ h2 {
   }
 
   .sidebar {
-    position: fixed; /* Сайдбар фиксирован */
-    right: 0; /* Прижат к правой стороне */
-    left: auto; /* Убедимся, что он не пытается быть слева */
-    width: 220px; /* Ширина сайдбара для десктопа */
+    position: fixed;
+    right: 0;
+    left: auto;
+    width: 220px;
     height: 100vh;
-    background-color: #f5f0fa; /* Сиреневый фон */
-    box-shadow: -2px 0 8px rgba(0,0,0,0.05); /* Легкая тень */
-    transition: none; /* Убираем анимацию для десктопа */
-    z-index: auto; /* Сбрасываем z-index для десктопа */
+    background-color: #f5f0fa;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.05); /* Стандартная тень для десктопа */
+    transition: none;
+    z-index: auto;
   }
 
   .sidebar.active {
-    right: 0; /* На десктопе сайдбар всегда на месте */
+    right: 0;
   }
 
   main {
-    margin-right: 240px; /* Отступ справа для сайдбара */
-    margin-left: 0 !important; /* **ВАЖНО:** Принудительно сбрасываем margin-left */
+    margin-right: 240px;
+    margin-left: 0 !important; /* Принудительно сбрасываем margin-left */
     max-width: 800px;
-    width: 100%; /* Убедимся, что занимает всю доступную ширину */
+    width: 100%;
   }
 }
