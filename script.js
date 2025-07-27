@@ -121,20 +121,19 @@ function setLanguage(lang) {
 // Установить английский по умолчанию
 setLanguage("en");
 
-function toggleSidebar() {
-  document.body.classList.toggle("sidebar-collapsed");
-}
-
+// Функция для переключения сайдбара (используется кнопкой-бургером)
 function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.classList.toggle('active');
 }
 
-const toggleButton = document.querySelector('.toggle-sidebar');
-const sidebar = document.querySelector('.sidebar');
-const mainContent = document.querySelector('main');
-
-toggleButton.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-  mainContent.classList.toggle('shifted');
+// Добавляем слушатель событий для ссылок навигации, чтобы закрывать сайдбар после клика
+document.querySelectorAll('.sidebar nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    const sidebar = document.querySelector('.sidebar');
+    // Если сайдбар открыт (имеет класс 'active'), закрываем его
+    if (sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+    }
+  });
 });
