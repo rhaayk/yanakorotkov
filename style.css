@@ -187,17 +187,18 @@ h2 {
 .toggle-sidebar {
   position: fixed;
   top: 10px;
-  right: 230px; /* чуть левее бокового меню */
+  right: 230px;
   background-color: #caa0ff;
   color: white;
   border: none;
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1002; /* СДЕЛАЛИ ВЫШЕ сайдбара */
   font-size: 1.2em;
   transition: right 0.3s ease-in-out;
 }
+
 
 /* Когда меню скрыто — перемещаем кнопку в самый правый угол */
 body.sidebar-collapsed .toggle-sidebar {
