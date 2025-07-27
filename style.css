@@ -271,8 +271,9 @@ body.sidebar-collapsed main {
   }
 }
 
+/* Кнопка-бургер */
 .toggle-sidebar {
-  display: none;
+  display: none; /* скрыта на больших экранах */
   font-size: 24px;
   background-color: #caa0ff; /* сиреневый фон */
   color: white;
@@ -286,44 +287,73 @@ body.sidebar-collapsed main {
   z-index: 1002;
   transition: background-color 0.3s ease;
   font-weight: bold;
-  font-size: 1.4em;
   user-select: none;
 }
 
 .toggle-sidebar:hover {
-  background-color: #9b6cff; /* чуть темнее при наведении */
+  background-color: #9b6cff; /* темнее на ховере */
 }
 
-/* На экранах <= 768px показываем кнопку */
+/* Показываем кнопку на мобильных */
 @media (max-width: 768px) {
   .toggle-sidebar {
     display: block;
   }
+
+  /* Меню скрыто справа по умолчанию */
+  .sidebar {
+    position: fixed;
+    right: -250px; /* спрятано справа */
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #f5f0fa; /* сиреневый фон */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Когда меню активно - сдвигаем вправо */
+  .sidebar.active {
+    right: 0;
+  }
+
+  main {
+    transition: margin-right 0.3s ease;
+    margin-right: 0;
+  }
+
+  main.shifted {
+    margin-right: 250px;
+  }
 }
 
-.sidebar {
-  position: fixed;
-  right: -250px; /* прячем справа */
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background-color: #f5f0fa; /* сиреневый фон, как на десктопе */
-  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
-  transition: right 0.3s ease;
-  overflow-y: auto;
-  z-index: 999;
+/* На больших экранах меню фиксировано справа */
+@media (min-width: 769px) {
+  .sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #f5f0fa;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    margin-right: 240px;
+  }
 }
 
-.sidebar.active {
-  right: 0;
-}
-main {
-  transition: margin-right 0.3s ease;
-}
-
-main.shifted {
-  margin-right: 250px;
-}
 
 
 
