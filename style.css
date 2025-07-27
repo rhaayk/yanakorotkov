@@ -221,3 +221,53 @@ body.sidebar-collapsed main {
 .sidebar {
   transition: transform 0.3s ease-in-out;
 }
+
+/* Скрываем кнопку на больших экранах */
+.toggle-sidebar {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: fixed; /* чтобы кнопка не сдвигала контент */
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+/* На экранах <= 768px показываем кнопку */
+@media (max-width: 768px) {
+  .toggle-sidebar {
+    display: block;
+  }
+
+  /* И делаем сайдбар скрытым по умолчанию */
+  .sidebar {
+    position: fixed;
+    left: -250px; /* прячем за экран слева */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #fff; /* или цвет фона сайдбара */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  /* Когда сайдбар активен — показываем */
+  .sidebar.active {
+    left: 0;
+  }
+
+  /* Чтобы main подвинулся при открытом меню (если нужно) */
+  main {
+    transition: margin-left 0.3s ease;
+  }
+
+  main.shifted {
+    margin-left: 250px;
+  }
+}
+
