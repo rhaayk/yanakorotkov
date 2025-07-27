@@ -271,24 +271,22 @@ body.sidebar-collapsed main {
   }
 }
 
-/* Кнопка-гамбургер */
 .toggle-sidebar {
+  display: none;
   position: fixed;
   top: 20px;
-  right: 20px; /* чтобы справа */
+  right: 20px;
   z-index: 1001;
-  background-color: #caa0ff; /* сиреневый */
+  background-color: #caa0ff; /* сиреневый цвет */
   color: white;
   border: none;
   font-size: 1.5em;
   border-radius: 6px;
   padding: 8px 12px;
   cursor: pointer;
-  display: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Показывать кнопку только на телефонах */
 @media (max-width: 768px) {
   .toggle-sidebar {
     display: block;
@@ -296,22 +294,17 @@ body.sidebar-collapsed main {
 
   .sidebar {
     position: fixed;
-    right: 0; /* вправо */
     top: 0;
-    height: 100vh;
+    right: 0; /* Меню справа */
     width: 220px;
-    background-color: #f5f0fa; /* тот же сиреневый фон */
+    height: 100vh;
+    background-color: #f5f0fa; /* светло-сиреневый */
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 1000;
   }
 
   .sidebar.active {
-    transform: translateX(0%);
-  }
-
-  main {
-    margin-right: 0;
-    padding: 2em 1.5em;
+    transform: translateX(0);
   }
 }
