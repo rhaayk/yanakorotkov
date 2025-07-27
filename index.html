@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yanako | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Yana Ko</h1>
+    <nav>
+      <a href="#about" data-i18n="about_title">Обо мне</a>
+      <a href="#achievements" data-i18n="achievements_title">Достижения</a>
+      <a href="#projects" data-i18n="projects_title">Проекты</a>
+      <a href="#contact" data-i18n="contact_title">Контакты</a>
+    </nav>
+    <div class="lang-switcher">
+      <ul>
+        <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+        <li><button onclick="setLanguage('ru')">🇷🇺 Русский</button></li>
+        <li><button onclick="setLanguage('de')">🇩🇪 Deutsch</button></li>
+      </ul>
+    </div>
+    
+    <div class="sidebar-footer">
+      <a href="mailto:rhaayk08@gmail.com" class="email-link">rhaayk08@gmail.com</a>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about" class="about-section">
+      <h2 data-i18n="about_title">Обо мне</h2>
+      <div class="about-content">
+        <img src="me.jpg" alt="Яна" class="profile-pic">
+        <div class="info-list">
+          <p><strong data-i18n="label_name">Имя:</strong> <span data-i18n="name">Яна Коротков</span></p>
+          <p><strong data-i18n="label_birthday">Дата рождения:</strong> <span data-i18n="birthday">28.11.2008</span></p>
+          <p><strong data-i18n="label_location">Место проживания:</strong> <span data-i18n="location">Хайфа, Израиль</span></p>
+          <p><strong data-i18n="label_school">Школа:</strong> <a href="https://bosmat.edu-haifa.org.il/" target="_blank" rel="noopener" data-i18n="school_name">Босмат а Хадаш</a></p>
+          <p><strong data-i18n="label_languages">Языки:</strong></p>
+          <ul class="languages-list">
+            <li data-i18n="lang_russian">Русский (носитель)</li>
+            <li data-i18n="lang_english">Английский B2</li>
+            <li data-i18n="lang_hebrew">Иврит B2</li>
+          </ul>
+          <p><strong data-i18n="label_interests">Интересы:</strong> <span data-i18n="interests">Математика, физика, программирование</span></p>
+          <p><strong data-i18n="label_quote">Цитата:</strong> <span data-i18n="quote">«Just having fun»</span></p>
+          <p><strong data-i18n="label_inspirer">Вдохновитель:</strong> <span data-i18n="inspirer">Софья Ковалевская</span></p>
+          <p><strong data-i18n="label_motivation">Мотивация:</strong> <span data-i18n="motivation">Стремление создавать технологии, которые меняют мир</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <h2 data-i18n="achievements_title">Достижения</h2>
+      <ul>
+        <li data-i18n="achievement_1">Участие в проекте NVIDIA</li>
+        <li data-i18n="achievement_2">Олимпиада по истории Яд Вашем</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2 data-i18n="projects_title">Проекты</h2>
+
+      <article class="project" style="background-color: #f0e8ff; padding: 1em 1.5em; border-radius: 12px; margin-top: 1em; box-shadow: 0 2px 8px rgba(122, 86, 255, 0.2);">
+        <h3 class="project-title" data-i18n="project_title" style="color: #7a56ff; margin-top: 0;">Прогноз качества бананов</h3>
+        <p class="project-date" data-i18n="project_date" style="font-weight: 600; margin-top: 0; color: #8b6dff;">Весна 2025</p>
+        <p class="project-description" data-i18n="project_description">
+          Школьный проект по машинному обучению весны 2025 года, предсказывающий качество бананов с помощью логистической регрессии и классификационных моделей.
+        </p>
+        <p>
+          <a href="banana_quality_2025.pdf" target="_blank" rel="noopener" class="project-pdf-link" data-i18n="project_pdf_link" style="color:#7a56ff; text-decoration:none; font-weight:600;">Открыть PDF проекта</a>
+        </p>
+      </article>
+
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact_title">Контакты</h2>
+      <p data-i18n="contact_text">Email: rhaayk08@gmail.com</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
