@@ -124,3 +124,8 @@ setLanguage("en");
 function toggleSidebar() {
   document.body.classList.toggle("sidebar-collapsed");
 }
+
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('active');
+}
