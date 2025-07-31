@@ -57,6 +57,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .lang-switcher ul li {
@@ -72,6 +73,10 @@ body {
   cursor: pointer;
   width: 100%;
   transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .lang-switcher button:hover {
