@@ -1,262 +1,151 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+// Объект с переводами для разных языков
+const translations = {
+  en: {
+    about_title: "About Me",
+    label_name: "Name:",
+    name: "Yana Korotkov",
+    label_birthday: "Birthday:",
+    birthday: "28.11.2008",
+    label_location: "Location:",
+    location: "Haifa, Israel",
+    label_school: "School:",
+    school_name: "Bosmat a Hadash",
+    label_languages: "Languages:",
+    lang_russian: "Russian (native)",
+    lang_english: "English B2",
+    lang_hebrew: "Hebrew B2",
+    label_interests: "Interests:",
+    interests: "Mathematics, physics, programming",
+    label_quote: "Quote:",
+    quote: "«Just having fun»",
+    label_inspirer: "Inspirer:",
+    inspirer: "Sofia Kovalevskaya",
+    label_motivation: "Motivation:",
+    motivation: "Striving to create technologies that change the world",
+
+    achievements_title: "Achievements",
+    achievement_1: "Participation in NVIDIA project",
+    achievement_2: "History Olympiad at Yad Vashem",
+    projects_title: "Projects",
+    
+    project_title: "Banana Quality Prediction",
+    project_date: "<strong class=\"highlight\">Spring 2025</strong>",
+    project_description: "A school machine learning project that predicts banana quality using logistic regression and classification models.",
+    project_pdf_link: "Open project PDF",
+    
+    ai4good_title: "AI4Good International Program",
+    ai4good_date: "<strong class=\"highlight\">Spring 2025</strong>",
+    ai4good_description: "Our 2025 Al4Good International Program brought together teen girls and female role models in nine countries for an eight-week online initiative empowering aspiring female leaders to use Al for positive community impact. Through learning from leaders in tech and Al, participants explored how to define challenges related to SDG Goals, identify innovative solutions, develop project plans, and deliver impactful pitch presentations.",
+    ai4good_certificate: "Certificate",
+    ai4good_presentation: "Presentation",
+  },
+  ru: {
+    about_title: "Обо мне",
+    label_name: "Имя:",
+    name: "Яна Коротков",
+    label_birthday: "Дата рождения:",
+    birthday: "28.11.2008",
+    label_location: "Место проживания:",
+    location: "Хайфа, Израиль",
+    label_school: "Школа:",
+    school_name: "Босмат а Хадаш",
+    label_languages: "Языки:",
+    lang_russian: "Русский (носитель)",
+    lang_english: "Английский B2",
+    lang_hebrew: "Иврит B2",
+    label_interests: "Интересы:",
+    interests: "Математика, физика, программирование",
+    label_quote: "Цитата:",
+    quote: "«Just having fun»",
+    label_inspirer: "Вдохновитель:",
+    inspirer: "Софья Ковалевская",
+    label_motivation: "Мотивация:",
+    motivation: "Стремление создавать технологии, которые меняют мир",
+
+    achievements_title: "Достижения",
+    achievement_1: "Участие в проекте NVIDIA",
+    achievement_2: "Олимпиада по истории Яд Вашем",
+    projects_title: "Проекты",
+    
+    project_title: "Прогноз качества бананов",
+    project_date: "<strong class=\"highlight\">Весна 2025</strong>",
+    project_description: "Школьный проект по машинному обучению, предсказывающий качество бананов с помощью логистической регрессии и классификационных моделей.",
+    project_pdf_link: "Открыть PDF проект",
+
+    ai4good_title: "AI4Good International Program",
+    ai4good_date: "<strong class=\"highlight\">Весна 2025</strong>",
+    ai4good_description: "Программа AI4Good 2025 объединила девочек-подростков и женщин-лидеров в девяти странах в рамках восьминедельной онлайн-инициативы, которая дает возможность начинающим лидерам использовать ИИ для позитивного влияния на общество. Изучая опыт лидеров в области технологий и ИИ, участники узнали, как определять проблемы, связанные с целями в области устойчивого развития, находить инновационные решения, разрабатывать планы проектов и проводить презентации.",
+    ai4good_certificate: "Сертификат",
+    ai4good_presentation: "Презентация",
+  },
+  de: {
+    about_title: "Über mich",
+    label_name: "Name:",
+    name: "Yana Korotkov",
+    label_birthday: "Geburtsdatum:",
+    birthday: "28.11.2008",
+    label_location: "Wohnort:",
+    location: "Haifa, Israel",
+    label_school: "Schule:",
+    school_name: "Bosmat a Hadash",
+    label_languages: "Sprachen:",
+    lang_russian: "Russisch (Muttersprache)",
+    lang_english: "Englisch B2",
+    lang_hebrew: "Hebräisch B2",
+    label_interests: "Interessen:",
+    interests: "Mathematik, Physik, Programmierung",
+    label_quote: "Zitat:",
+    quote: "«Just having fun»",
+    label_inspirer: "Inspiratorin:",
+    inspirer: "Sofia Kowalewskaja",
+    label_motivation: "Motivation:",
+    motivation: "Das Bestreben, Technologien zu schaffen, die die Welt verändern",
+
+    achievements_title: "Erfolge",
+    achievement_1: "Teilnahme am NVIDIA-Projekt",
+    achievement_2: "Geschichtsolympiade bei Yad Vashem",
+    projects_title: "Projekte",
+    
+    project_title: "Vorhersage der Bananenqualität",
+    project_date: "<strong class=\"highlight\">Frühjahr 2025</strong>",
+    project_description: "Ein Schulprojekt zum maschinellen Lernen, das die Qualität von Bananen mithilfe logistischer Regression und Klassifikationsmodellen vorhersagt.",
+    project_pdf_link: "Projekt-PDF öffnen",
+
+    ai4good_title: "AI4Good International Program",
+    ai4good_date: "<strong class=\"highlight\">Frühjahr 2025</strong>",
+    ai4good_description: "Das AI4Good International Program 2025 brachte Teenager-Mädchen und weibliche Vorbilder in neun Ländern zu einer achtwöchigen Online-Initiative zusammen. Ziel war es, angehende weibliche Führungskräfte zu befähigen, KI für einen positiven Einfluss auf ihre Gemeinschaft einzusetzen. Durch das Lernen von Führungskräften in den Bereichen Technologie und KI erforschten die Teilnehmerinnen, wie sie Herausforderungen im Zusammenhang mit den SDG-Zielen definieren, innovative Lösungen identifizieren, Projektpläne entwickeln und wirkungsvolle Präsentationen halten können.",
+    ai4good_certificate: "Zertifikat",
+    ai4good_presentation: "Präsentation",
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
 }
 
-/* --- Стили для мобильных устройств (по умолчанию) --- */
+document.addEventListener('DOMContentLoaded', () => {
+  setLanguage("en");
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100vh;
-  background-color: #f5f0fa;
-  padding: 2em 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
-}
+  const sidebar = document.querySelector('.sidebar');
+  const burgerButton = document.getElementById('burger');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
 
-.sidebar.active {
-  right: 0;
-}
-
-.sidebar h1 {
-  color: #caa0ff;
-  font-size: 1.8em;
-  margin-bottom: 1em;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  margin-bottom: 2em;
-}
-
-.sidebar nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.sidebar nav a:hover {
-  color: #caa0ff;
-}
-
-.lang-switcher ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.lang-switcher ul li {
-  margin-bottom: 0.8em;
-}
-
-.lang-switcher button {
-  background-color: #ffffff;
-  border: 2px solid #caa0ff;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 1em;
-  cursor: pointer;
-  width: 100%;
-  transition: background 0.3s, transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.lang-switcher button:hover {
-  background-color: #caa0ff33;
-  transform: scale(1.05);
-}
-
-.sidebar-footer {
-  margin-top: auto;
-  padding: 1em 0 0 0;
-  width: 100%;
-  border-top: 1px solid #d6c9f8;
-  text-align: center;
-}
-
-.email-link {
-  color: #7a56ff;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s;
-}
-
-.email-link:hover {
-  color: #4e2ac1;
-  text-decoration: underline;
-}
-
-main {
-  padding: 3em 2em;
-  max-width: 800px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-section {
-  margin-bottom: 3em;
-}
-
-h2 {
-  color: #caa0ff;
-  font-size: 1.5em;
-}
-
-.about-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 2em;
-  flex-wrap: wrap;
-}
-
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: 3px solid #caa0ff;
-}
-
-.info-list p {
-  margin: 0.4em 0;
-  font-size: 1.05em;
-}
-
-.info-list a {
-  color: #a178ff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.info-list a:hover {
-  color: #6b3ecf;
-  text-decoration: underline;
-}
-
-.languages-list {
-  list-style: disc inside;
-  margin: 0.3em 0 0 1.2em;
-  padding: 0;
-}
-
-.languages-list li {
-  margin-bottom: 0.2em;
-  font-size: 1.05em;
-}
-
-.project {
-  background-color: #f3eaff;
-  border: 2px solid #caa0ff;
-  border-radius: 12px;
-  padding: 1.5em 1.8em;
-  margin-bottom: 2em;
-  box-shadow: 0 4px 8px rgba(202, 160, 255, 0.2);
-}
-
-.project-title {
-  color: #9b6cff;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-  font-size: 1.2em;
-}
-
-.project-description {
-  font-size: 1.05em;
-  margin-bottom: 1em;
-  color: #4a317d;
-}
-
-.project-pdf-link {
-  color: #7a56ff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.project-pdf-link:hover {
-  color: #4e2ac1;
-  text-decoration: underline;
-}
-
-.highlight {
-  color: #a178ff;
-}
-
-.toggle-sidebar {
-  display: block;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #caa0ff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5em;
-  line-height: 1;
-  box-shadow: 0 2px 8px rgba(202, 160, 255, 0.4);
-  z-index: 1001;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-sidebar:hover {
-  background-color: #b388ff;
-}
-
-
-/* --- Стили для десктопов (медиа-запрос) --- */
-@media (min-width: 769px) {
-  body {
-    display: flex;
+  if (burgerButton) {
+    burgerButton.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
   }
 
-  .toggle-sidebar {
-    display: none;
-  }
-
-  .sidebar {
-    position: fixed;
-    right: 0;
-    left: auto;
-    width: 220px;
-    height: 100vh;
-    background-color: #f5f0fa;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
-    transition: none;
-    z-index: auto;
-  }
-
-  .sidebar.active {
-    right: 0;
-  }
-
-  main {
-    margin-left: 0;
-    margin-right: 240px;
-    flex-grow: 1;
-    max-width: 800px;
-    box-sizing: border-box;
-  }
-}
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+      }
+    });
+  });
+});
