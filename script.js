@@ -27,12 +27,12 @@ const translations = {
     achievement_1: "Participation in NVIDIA project",
     achievement_2: "History Olympiad at Yad Vashem",
     projects_title: "Projects",
-    
+
     project_title: "Banana Quality Prediction",
     project_date: "<strong class=\"highlight\">Spring 2025</strong>",
     project_description: "A school machine learning project that predicts banana quality using logistic regression and classification models.",
     project_pdf_link: "Open project PDF",
-    
+
     ai4good_title: "AI4Good International Program",
     ai4good_date: "<strong class=\"highlight\">Spring 2025</strong>",
     ai4good_description: "Our 2025 Al4Good International Program brought together teen girls and female role models in nine countries for an eight-week online initiative empowering aspiring female leaders to use Al for positive community impact. Through learning from leaders in tech and Al, participants explored how to define challenges related to SDG Goals, identify innovative solutions, develop project plans, and deliver impactful pitch presentations.",
@@ -66,7 +66,7 @@ const translations = {
     achievement_1: "Участие в проекте NVIDIA",
     achievement_2: "Олимпиада по истории Яд Вашем",
     projects_title: "Проекты",
-    
+
     project_title: "Прогноз качества бананов",
     project_date: "<strong class=\"highlight\">Весна 2025</strong>",
     project_description: "Школьный проект по машинному обучению, предсказывающий качество бананов с помощью логистической регрессии и классификационных моделей.",
@@ -105,7 +105,7 @@ const translations = {
     achievement_1: "Teilnahme am NVIDIA-Projekt",
     achievement_2: "Geschichtsolympiade bei Yad Vashem",
     projects_title: "Projekte",
-    
+
     project_title: "Vorhersage der Bananenqualität",
     project_date: "<strong class=\"highlight\">Frühjahr 2025</strong>",
     project_description: "Ein Schulprojekt zum maschinellen Lernen, das die Qualität von Bananen mithilfe logistischer Regression und Klassifikationsmodellen vorhersagt.",
