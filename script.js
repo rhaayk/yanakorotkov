@@ -36,6 +36,12 @@ const translations = {
     project_date: "Spring 2025",
     project_pdf_link: "Open project PDF",
 
+    ai4good_title: "AI4Good International Program",
+    ai4good_date: "Spring 2025",
+    ai4good_description: "Our 2025 Al4Good International Program brought together teen girls and female role models in nine countries for an eight-week online initiative empowering aspiring female leaders to use Al for positive community impact. Through learning from leaders in tech and Al, participants explored how to define challenges related to SDG Goals, identify innovative solutions, develop project plans, and deliver impactful pitch presentations.",
+    ai4good_certificate: "Certificate",
+    ai4good_presentation: "Presentation",
+
     contact_text: "Email: rhaayk08@gmail.com",
   },
   ru: {
@@ -75,6 +81,12 @@ const translations = {
     project_date: "Весна 2025",
     project_pdf_link: "Открыть PDF проект",
 
+    ai4good_title: "AI4Good International Program",
+    ai4good_date: "Весна 2025",
+    ai4good_description: "Программа AI4Good 2025 объединила девочек-подростков и женщин-лидеров в девяти странах в рамках восьминедельной онлайн-инициативы, которая дает возможность начинающим лидерам использовать ИИ для позитивного влияния на общество. Изучая опыт лидеров в области технологий и ИИ, участники узнали, как определять проблемы, связанные с целями в области устойчивого развития, находить инновационные решения, разрабатывать планы проектов и проводить презентации.",
+    ai4good_certificate: "Сертификат",
+    ai4good_presentation: "Презентация",
+
     contact_text: "Email: rhaayk08@gmail.com",
   },
   de: {
@@ -112,6 +124,12 @@ const translations = {
     project_description: "Ein Schulprojekt zum maschinellen Lernen, das die Qualität von Bananen mithilfe logistischer Regression und Klassifikationsmodellen vorhersagt.",
     project_date: "Frühjahr 2025",
     project_pdf_link: "Projekt-PDF öffnen",
+
+    ai4good_title: "AI4Good International Program",
+    ai4good_date: "Frühjahr 2025",
+    ai4good_description: "Das AI4Good International Program 2025 brachte Teenager-Mädchen und weibliche Vorbilder in neun Ländern zu einer achtwöchigen Online-Initiative zusammen. Ziel war es, angehende weibliche Führungskräfte zu befähigen, KI für einen positiven Einfluss auf ihre Gemeinschaft einzusetzen. Durch das Lernen von Führungskräften in den Bereichen Technologie und KI erforschten die Teilnehmerinnen, wie sie Herausforderungen im Zusammenhang mit den SDG-Zielen definieren, innovative Lösungen identifizieren, Projektpläne entwickeln und wirkungsvolle Präsentationen halten können.",
+    ai4good_certificate: "Zertifikat",
+    ai4good_presentation: "Präsentation",
 
     contact_text: "E-Mail: rhaayk08@gmail.com",
   }
