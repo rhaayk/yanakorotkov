@@ -154,3 +154,109 @@ h2 {
 }
 
 .languages-list {
+  list-style: disc inside;
+  margin: 0.3em 0 0 1.2em;
+  padding: 0;
+}
+
+.languages-list li {
+  margin-bottom: 0.2em;
+  font-size: 1.05em;
+}
+
+.project {
+  background-color: #f3eaff;
+  border: 2px solid #caa0ff;
+  border-radius: 12px;
+  padding: 1.5em 1.8em;
+  margin-bottom: 2em;
+  box-shadow: 0 4px 8px rgba(202, 160, 255, 0.2);
+}
+
+.project-title {
+  color: #9b6cff;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+
+.project-description {
+  font-size: 1.05em;
+  margin-bottom: 1em;
+  color: #4a317d;
+}
+
+.project-pdf-link {
+  color: #7a56ff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.project-pdf-link:hover {
+  color: #4e2ac1;
+  text-decoration: underline;
+}
+
+.highlight {
+  color: #a178ff;
+}
+
+.toggle-sidebar {
+  display: block;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #caa0ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5em;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(202, 160, 255, 0.4);
+  z-index: 1001;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-sidebar:hover {
+  background-color: #b388ff;
+}
+
+
+/* --- Стили для десктопов (медиа-запрос) --- */
+@media (min-width: 769px) {
+  body {
+    display: flex;
+  }
+
+  .toggle-sidebar {
+    display: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    right: 0;
+    left: auto;
+    width: 220px;
+    height: 100vh;
+    background-color: #f5f0fa;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+    transition: none;
+    z-index: auto;
+  }
+
+  .sidebar.active {
+    right: 0;
+  }
+
+  main {
+    margin-left: 0;
+    margin-right: 240px;
+    flex-grow: 1;
+    max-width: 800px;
+    box-sizing: border-box;
+  }
+}
